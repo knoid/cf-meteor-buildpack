@@ -70,6 +70,8 @@ install_meteor() {
 build() {
   (
     cd $BUILD_DIR
+    status "Installing npm dependencies"
+    npm install --production 2>&1 | indent
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
