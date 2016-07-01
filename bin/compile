@@ -71,6 +71,7 @@ build() {
   (
     cd $BUILD_DIR
     status "Installing npm dependencies"
+    rm -rf node_modules
     npm install --production 2>&1 | indent
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
